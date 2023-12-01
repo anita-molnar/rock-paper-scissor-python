@@ -1,0 +1,43 @@
+import random 
+
+all_choice = ['r', 'p', 's']
+# Initalise player and computer scores
+player_score = 0
+computer_score = 0
+print("Welcome to the Rock, Paper, Scissor game!")
+# Play the game 5 times
+for i in range(5):
+   # Number of attempts
+   print(f"Attempts {i+1}/5")
+   # Get the player choice
+   user_choice = input("Please choose:'r' for rock, 'p' for paper, 's', for scissor: ")
+   
+   #Takes the list and shuffles
+   #Get the computer choice
+   random.shuffle(all_choice)
+   computer_choice = all_choice[0]
+   print(f"The computer choice is: {computer_choice}")
+  
+   # The winner of the rounds
+   if user_choice == computer_choice:
+      print("Its a draw!")
+   elif user_choice == "s" and computer_choice == "p":
+      print("You won!")
+      player_score += 1
+   elif user_choice == "r" and computer_choice == "s":
+      print("You won!")
+      player_score += 1
+   elif user_choice == "p" and computer_choice == "r":
+      print("You won!")
+      player_score += 1
+   else:
+      print("You lost!")
+      computer_score += 1
+
+# Overall winner of the game 
+if player_score > computer_score:
+   print("You are the winner of the game!:) ")
+elif player_score < computer_score:
+   print("Game over!:( ")
+else:
+   print("The game it's a draw!")
